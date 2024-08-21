@@ -1,0 +1,56 @@
+/* index.css */
+
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #000000; 
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+}
+
+.container {
+  width: 100%; 
+  max-width: 400px; 
+  padding: 20px;
+  background-color: rgba(49, 32, 59, 0.361);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgb(255, 241, 241); 
+}
+
+.label-select {
+  display: block; 
+  margin: 15px 0 5px; 
+  font-weight: 600; 
+  font-size: 1.1rem; 
+  color: #ffffff; 
+}
+
+select {
+  width: 100%; 
+  padding: 12px 15px; 
+  border: 2px solid #ffffff; 
+  border-radius: 8px; 
+  background-color: white;
+  font-size: 16px;
+  cursor: pointer; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
+
+select:focus {
+  border-color: #d0ffd6; 
+  outline: none; 
+  box-shadow: 0 0 8px rgb(211, 255, 225);
+}
+
+option {
+  padding: 10px; 
+  background-color: white;
+  color: #333; 
+}
+
+
+option:hover {
+  background-color: #bef6af; 
+}

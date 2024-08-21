@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000000; 
+  color: white; 
+  position: relative; /* Para posicionar los pseudo-elementos */
+  overflow: hidden; /* Evita el desplazamiento */
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; 
+  padding: 20px;
+  position: relative; /* Para asegurar que el contenido esté por encima del fondo */
+  z-index: 1; /* Asegura que el contenido esté encima de las figuras */
+}
+
+.app-title {
+  font-size: 2.5rem;  
+  margin-bottom: 10px;
+}
+
+.app-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+}
+
+.app-divider {
+  border: 1px solid #4a5568;
+  width: 100%; 
+  margin-bottom: 20px;
+}
+
+/* Pseudo-elementos para las figuras de fondo */
+body::before,
+body::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%; /* Bordes redondeados para crear círculos */
+  background: rgba(128, 0, 128, 0.6); /* Color morado oscuro con opacidad */
+  z-index: 0; /* Asegura que las figuras estén detrás del contenido */
+}
+
+/* Figuras estilizadas */
+body::before {
+  width: 300px; /* Tamaño de la figura */
+  height: 300px; /* Tamaño de la figura */
+  top: -100px; /* Posiciona hacia arriba */
+  left: -100px; /* Posiciona a la izquierda */
+  box-shadow: 0 0 30px rgba(128, 0, 128, 0.8); /* Sombra para dar profundidad */
+}
+
+body::after {
+  width: 500px; /* Tamaño de la figura */
+  height: 500px; /* Tamaño de la figura */
+  bottom: -150px; /* Posiciona hacia abajo */
+  right: -150px; /* Posiciona a la derecha */
+  background: radial-gradient(circle, rgba(128, 0, 128, 0.7), rgba(0, 0, 0, 0)); /* Degradado radial */
+}
+
+/* Agregar más figuras con diferentes formas */
+body::nth-child(3) {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg); /* Centra y rota la figura */
+  background: rgba(128, 0, 128, 0.5);
+  border-radius: 10%; /* Bordes redondeados */
+  box-shadow: 0 0 20px rgba(128, 0, 128, 0.5);
+}
