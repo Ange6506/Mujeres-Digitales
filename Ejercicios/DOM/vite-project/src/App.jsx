@@ -1,4 +1,4 @@
-import { Selects } from '../components/Selects';
+import { Selects } from './components/Selects';
 import './App.css';
 import './index.css'; 
 
