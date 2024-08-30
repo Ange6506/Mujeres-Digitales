@@ -1,5 +1,7 @@
 import React from "react";
 import { useForms } from "../hooks/useForms";
+import { Loader } from './Loader';
+import Mail from './Mail';
 
 //Valores por defecto para el formulario
 const valorDefecto = {
@@ -42,17 +44,12 @@ const validaciones = (form) => {
 };
 
 const ContactForm = () => {
-  //Llamado a nuestro custom hook
-  const { form, errores, manejadorCambios, manejadorSalidaInput } = useForms(
+  //Llamado a nuestro custom hook recibiendo mis variables y mis funciones
+  const { form, errores, cargando, bd, respuesta, manejadorCambios, manejadorSalidaInput, enviarFormulario } = useForms(
     valorDefecto,
     validaciones
   );
-
-  //Funcion de envio (submit) del formulario
-  const enviarFormulario = () => {
-    console.log("Enviando form...");
-  };
-
+  
   return (
     <>
       <h1>Formulario de contacto</h1>
@@ -64,7 +61,7 @@ const ContactForm = () => {
           type="text"
           name="nombre"
           placeholder="Escribe tu nombre..."
-          required
+          // required
           value={form.nombre}
           onChange={manejadorCambios}
           onBlur={manejadorSalidaInput}
@@ -77,7 +74,7 @@ const ContactForm = () => {
           type="email"
           name="email"
           placeholder="Escribe tu correo electronico..."
-          required
+          // required
           value={form.email}
           onChange={manejadorCambios}
           onBlur={manejadorSalidaInput}
@@ -90,7 +87,7 @@ const ContactForm = () => {
           type="text"
           name="asunto"
           placeholder="Asunto..."
-          required
+          // required
           value={form.asunto}
           onChange={manejadorCambios}
           onBlur={manejadorSalidaInput}
@@ -102,7 +99,7 @@ const ContactForm = () => {
         <textarea
           name="observaciones"
           placeholder="Escribe tus observaciones..."
-          required
+          // required
           cols={50}
           rows={5}
           value={form.observaciones}
@@ -114,8 +111,11 @@ const ContactForm = () => {
           <p className="p-error">{errores.observaciones}</p>
         )}
         {/* Button que envia el formulario */}
-        <input type="submit" value="Enviar" />
+        <input type="submit" value="Enviar" disabled={cargando} className={cargando ? 'deshabilitado' : ''}/>
       </form>
+      {/* Si cargando es True renderiza <Loader/> */}
+      {cargando && <Loader/>}
+      {respuesta && <Mail datos={bd}/>}
     </>
   );
 };
