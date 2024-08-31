@@ -1,4 +1,4 @@
-import { Index } from "./Components/Index";
+import  Index  from "./Components/Index";
 
 function App() {
     return (
