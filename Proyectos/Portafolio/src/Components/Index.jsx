@@ -12,7 +12,7 @@ const Index = () => {
   const handleBlogClick = () => setCurrentSection("blog");
 
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-black dark:bg-gray-900">
       <div className="container min-h-screen px-6 py-12 mx-auto lg:flex lg:items-center lg:gap-12">
         <div className="w-full lg:w-1/2">
           <h1 className="mt-3 text-4xl text-white dark:text-white md:text-3xl">
